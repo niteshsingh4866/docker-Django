@@ -1,0 +1,3 @@
+Django
+django-redis
+psycopg2

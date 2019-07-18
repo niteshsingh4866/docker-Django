@@ -1,0 +1,31 @@
+version: '3'
+services:
+  cache:
+    image: redis
+    ports: 
+      - "6379"
+  db:
+    image: postgres
+    ports:
+      - "5432"
+    volumes: 
+      - "db_volume:/var/lib/postgresql/data"
+  web:
+    build: .
+    # command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver 127.0.0.1:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - cache
+    links:
+      - db
+      - cache
+  nginx:
+    build: ./nginx/
+    ports: 
+      - "8000:8000"
+    depends_on: 
+      - web
+volumes: 
+    db_volume:

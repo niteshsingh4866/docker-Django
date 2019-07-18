@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FibCalulator</title>
+    <link rel="stylesheet" href="{% static 'pages\main.css'%}">
+</head>
+<body>
+    <div class="header-card">
+        <div class="header">
+            <h1> Calculate Fibonacci</h1>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="input-card">
+        <h2 style="text-align-last: center">Enter the Index</h2>
+        <form method="POST">
+                 {% csrf_token %}
+                <div class="input">
+                        <input type="number" name="number" id="number">
+                </div>
+                <br>
+                <div class="submit">
+                   <input type="submit" value="Calculate">
+                </div>
+        </form>
+    </div>
+    <div class="input-card">
+        <!-- <h2 style="text-align-last: center">Recently Calculated Values</h2> -->
+        <p style="text-align-last: center ; text-decoration-color: darkblue">
+            Fibonacci for {{ number }} is {{ output }} fetched {{ source }}
+            <!-- {% for arg in args %}
+             Fibonacci for {{arg.number}} is {{arg.result}} <br>
+            {% endfor %} -->
+        </p>
+    </div>
+    <div class="input-card">
+        <h2 style="text-align-last: center">Recently Calculated Values</h2>
+        <p style="text-align-last: center ; text-decoration-color: darkblue">
+             <!--Fibonacci for {{ number }} is {{ output }} -->
+                {% for key,value in args.items %}
+                        Fibonacci for {{key}} is {{value}}<br>
+                {% endfor %}
+        </p>
+    </div>
+</body>
+</html>

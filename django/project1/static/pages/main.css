@@ -1,0 +1,34 @@
+body{
+    background-color:white
+}
+.header-card{
+    padding-bottom: 1em;
+    box-shadow:0 4px 8px 0 rgba(36, 32, 32, 0.2);
+    background-color: white;
+    border-start-end-radius: 8px;
+    width: 100%;
+}
+.header{
+    padding: 0.1px;
+    font-size-adjust: inherit;
+    font-size:15px;
+}
+.header h1{
+    text-align-last: center
+}
+.inout-card h2{
+    text-align-last: center
+}
+.input-card{
+    margin-left:30%;
+    box-shadow: 0 4px 8px 0 rgba(36, 32, 32, 0.2);
+    width: 30%;
+}
+.input{
+    text-align: center;
+    }
+.submit{
+    padding-bottom: 10px;
+    text-align: center;
+}
+
